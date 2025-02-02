@@ -122,3 +122,14 @@
   border-radius: 12px;
   align-self: flex-start;
 }
+.add-item-to-cart-button {
+  width: 10%;
+  height: 20%;
+}
+
+@media screen and (max-width: 767px) {
+  .add-item-to-cart-button {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+}

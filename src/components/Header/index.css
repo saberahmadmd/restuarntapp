@@ -1,56 +1,129 @@
+/* Header Container */
 .nav-header {
-  box-shadow: 0px 10px 10px -15px #111;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
+  background-color: #5e698a;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  text-decoration: none;
 }
 
 .logo-heading {
-  font-family: 'Roboto';
-  font-weight: 600;
-  font-size: 35px;
-  cursor: pointer;
-  padding-right: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
-
-@media screen and (max-width: 576px) {
-  .logo-heading {
-    font-size: 25px;
-  }
-}
-
-.myorders-text-and-count-icon {
+.my-orders-logout-button-cart {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
+  gap: 10%;
+  padding-right: 10%;
+}
+
+.myorders-and-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-heading:hover {
+  color: #61dafb;
 }
 
 .my-orders-text {
-  font-family: 'Roboto';
+  text-align: start;
+  font-size: 20px;
   font-weight: 500;
-  font-size: 18px;
-  color: #585555;
+  color: white;
 }
 
-.cart-icon-container {
+/* Logout Button */
+.log-out-button {
+  background-color: #61dafb;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.log-out-button:hover {
+  background-color: #21a1f1;
+}
+
+/* Cart Icon Container */
+.cart-icon-link {
   position: relative;
+}
+
+.cart-icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 2rem;
+  color: white;
 }
 
 .cart-count-badge {
   position: absolute;
-  top: -15px;
+  top: -5px;
   right: -5px;
+  background-color: #ff4040;
+  border-radius: 50%;
+  padding: 5px 10px;
 }
 
 .cart-count {
-  text-align: center;
-  background-color: #ff6347;
-  padding: 4px 2px 2px;
-  color: #ffff;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 14px;
-  min-width: 25px;
-  border-radius: 50%;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo-heading {
+    font-size: 1.5rem;
+  }
+
+  .my-orders-text {
+    margin: 10px 0;
+  }
+
+  .log-out-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-heading {
+    font-size: 1.3rem;
+  }
+
+  .cart-icon {
+    font-size: 1.8rem;
+  }
 }

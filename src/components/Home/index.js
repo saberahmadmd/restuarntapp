@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react'
-
+import {useState, useEffect, useContext} from 'react'
 import Header from '../Header'
 import DishItem from '../DishItem'
+
+import CartContext from '../../context/CartContext'
 
 import './index.css'
 
@@ -9,7 +10,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [response, setResponse] = useState([])
   const [activeCategoryId, setActiveCategoryId] = useState('')
-
+  const {setRestaurantName} = useContext(CartContext)
   const [cartItems, setCartItems] = useState([])
 
   const addItemToCart = dish => {
@@ -67,8 +68,11 @@ const Home = () => {
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
     const apiResponse = await fetch(api)
     const data = await apiResponse.json()
+    // console.log(data)
     const updatedData = getUpdatedData(data[0].table_menu_list)
     setResponse(updatedData)
+    setRestaurantName(data[0].restaurant_name)
+    console.log(data[0].restaurant_name)
     setActiveCategoryId(updatedData[0].menuCategoryId)
     setIsLoading(false)
   }
@@ -103,20 +107,17 @@ const Home = () => {
     })
 
   const renderDishes = () => {
-    const {categoryDishes} = response.find(
+    const activeCategory = response.find(
       eachCategory => eachCategory.menuCategoryId === activeCategoryId,
     )
+
+    if (!activeCategory) return null
+    const {categoryDishes} = activeCategory
 
     return (
       <ul className="dishes-list-container">
         {categoryDishes.map(eachDish => (
-          <DishItem
-            key={eachDish.dishId}
-            dishDetails={eachDish}
-            cartItems={cartItems}
-            addItemToCart={addItemToCart}
-            removeItemFromCart={removeItemFromCart}
-          />
+          <DishItem key={eachDish.dishId} dishDetails={eachDish} />
         ))}
       </ul>
     )

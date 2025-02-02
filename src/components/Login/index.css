@@ -1,0 +1,156 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1717;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Form and image container */
+.from-and-login-image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 10%;
+  padding: 10%;
+}
+
+/* Image styling */
+.login-image {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.form {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading */
+.heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Input container */
+.input-container {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-container label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Input styling */
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  border-color: #4caf50;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Error message */
+.error-msg {
+  color: #f44336;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .form {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .login-image {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .from-and-login-image-container {
+    flex-direction: column;
+  }
+  .heading {
+    font-size: 20px;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .input-container label {
+    font-size: 12px;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
